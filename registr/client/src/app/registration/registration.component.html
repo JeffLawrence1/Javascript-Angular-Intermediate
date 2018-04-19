@@ -1,0 +1,44 @@
+<h1>Registration</h1>
+<h2>Account Information</h2>
+
+<form name="userForm" (submit)='create()'>
+    firstName
+
+    <input type="text" name="firstName" [(ngModel)]="registration.firstName" #firstName='ngModel' required minlength="2">
+    <span *ngIf='firstName.errors && firstName.dirty'>must have more than 2 chars</span>
+    <br> lastName
+    <input type="text" name="lastName" [(ngModel)]="registration.lastName" #lastName='ngModel' required minlength="2">
+    <span *ngIf='lastName.errors && lastName.dirty'>must have more than 2 chars</span>
+    <br> Email
+    <input type="text" name="email" [(ngModel)]="registration.email" #email='ngModel' required minlength="2">
+    <span *ngIf='email.errors && email.dirty'>must have more than 2 chars</span>
+    <br> Password
+    <input type="text" name="password" [(ngModel)]="registration.password" #password='ngModel' required minlength="8" pattern="^([a-zA-Z0-9@*#]{8,15})$">
+    <span *ngIf='password.errors'>must have more than 8 chars</span>
+    <br> Confirm Password
+    <input type="text" name="confirm" [(ngModel)]="registration.confirm" #confirm='ngModel' required minlength="2" pattern={{registration.password}}>
+    <span *ngIf='confirm.errors'>must have more than 2 chars</span>
+    <br> Street Address
+    <input type="text" name="street" [(ngModel)]="registration.street" #street='ngModel' required minlength="2">
+    <span *ngIf='street.errors'>must have more than 2 chars</span>
+    <br> Unit/Apt#
+    <input type="text" name="apt" [(ngModel)]="registration.apt" #apt='ngModel' required minlength="2">
+    <span *ngIf='apt.errors'>must have more than 2 chars</span>
+    <br> City
+    <input type="text" name="city" [(ngModel)]="registration.city" #city='ngModel' required minlength="2">
+    <span *ngIf='city.errors'>must have more than 2 chars</span>
+    <br> State
+    <input type="text" name="state" [(ngModel)]="registration.state" #state='ngModel' required minlength="2">
+    <span *ngIf='state.errors'>must have more than 2 chars</span>
+    <br>
+    <br> *I'm Feeling Lucky
+    <input type="radio" name="lucky" value="lucky">Yes
+    <input type="radio" name="lucky" value="unlucky">No
+    <br>
+    <br>
+    <input type="submit" name="submit" value="submit" ng-disabled="userForm.invalid">
+
+
+</form>
+
+{{registration | json}}

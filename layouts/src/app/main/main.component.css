@@ -1,0 +1,9 @@
+.Main {
+    width: 400px;
+    height: 400px;
+    background-color: lightblue;
+    border: solid black;
+    display: inline-block;
+    margin-top: 30px;
+    margin-left: 35px;
+}
